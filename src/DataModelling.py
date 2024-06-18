@@ -47,26 +47,17 @@ for i, label in enumerate(['CG', 'OR']):
  print(f"Class {label} - Precision: {class_precision[i]}, Recall: {class_recall[i]}, F1-Score: {class_f1[i]}")
 
 
-In [25]:
-Logistic Regression Accuracy: 0.8914528616972826
-C:\Users\GLADVIN\anaconda3\lib\site-packages\sklearn\linear_model\_logistic.py:458: ConvergenceWarning: lbfgs f
-ailed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-Increase the number of iterations (max_iter) or scale the data as shown in:
- https://scikit-learn.org/stable/modules/preprocessing.html (https://scikit-learn.org/stable/modules/preproc
-essing.html)
-Please also refer to the documentation for alternative solver options:
- https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression (https://scikit-learn.org/sta
-ble/modules/linear_model.html#logistic-regression)
-n_iter_i = _check_optimize_result(
 # Transform categorical labels into binary labels
 lb = LabelBinarizer()
 y_test_bin = lb.fit_transform(y_test)
+
 # Calculate ROC curve
 rf_probabilities = rf.predict_proba(x_test)[:, 1]
 fpr, tpr, thresholds = roc_curve(y_test_bin, rf_probabilities)
+
 # Calculate ROC AUC
 roc_auc = roc_auc_score(y_test_bin, rf_probabilities)
+
 # Plot the ROC curve
 plt.figure()
 plt.plot(fpr, tpr, color='darkorange', lw=2, label='ROC curve (area = %0.2f)' % roc_auc)
