@@ -8,7 +8,7 @@ from sklearn.preprocessing import LabelBinarizer # Import LabelBinarizer
 import matplotlib.pyplot as plt
 
 # Get cleaned data set
-df = pd.read_csv('newData.csv')
+df = pd.read_csv("../resource/newData.csv")
 
 # Sentence encoding for model input
 model = SentenceTransformer('paraphrase-MiniLM-L6-v2')

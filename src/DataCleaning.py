@@ -3,7 +3,7 @@ import numpy as np
 import re
 
 #get data set
-df = pd.read_csv('fake reviews dataset.csv')
+df = pd.read_csv("../resource/fake reviews dataset.csv")
 
 df = df.replace('',np.nan,regex = True)
 
@@ -31,4 +31,4 @@ for i in docs:
 newdf = df.dropna()
 print("len: ",len(newdf))
 #add new dataframe to a csv file
-newdf.to_csv("newData.csv")
+newdf.to_csv("../resource/newData.csv")
